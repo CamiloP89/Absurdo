@@ -1,0 +1,19 @@
+<div class="fixed inset-0 overflow-hidden bg-gradient-to-br from-black to-gray-900 z-40">
+  <div class="relative w-full h-full">
+    <div
+      *ngFor="let answer of answers"
+      class="glitch-box absolute w-72 max-w-xs bg-black/80 backdrop-blur-md rounded-xl shadow-2xl p-4 animate-float"
+      [ngClass]="answer.colorClass"
+      [ngStyle]="{
+        transform: 'translate(' + answer.x + 'px, ' + answer.y + 'px)'
+      }"
+    >
+      <div class="flex justify-between items-center mb-2">
+        <h3 class="text-lg font-bold">{{ answer.name }}</h3>
+        <span class="text-xs text-gray-400">{{ answer.createdAt | date:'shortTime' }}</span>
+      </div>
+      <p class="text-sm italic">"{{ answer.question }}"</p>
+      <p class="mt-2 font-medium">"{{ answer.response }}"</p>
+    </div>
+  </div>
+</div>

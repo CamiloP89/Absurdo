@@ -1,0 +1,74 @@
+.glitch-box {
+  animation: glitch 2s infinite;
+}
+@keyframes float1 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-20px); }
+}
+
+@keyframes float2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(20px); }
+}
+
+@keyframes float3 {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(-10px, 10px); }
+}
+
+.glitch-text {
+  position: relative;
+  color: white;
+  font-weight: bold;
+}
+.glitch-text::before,
+.glitch-text::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+.glitch-text::before {
+  text-shadow: -2px 0 red;
+  animation: glitch 1s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+  text-shadow: 2px 0 blue;
+  animation: glitch 1s infinite linear alternate;
+}
+
+@keyframes glitch {
+  0% {
+    clip: rect(10px, 9999px, 50px, 0);
+  }
+  50% {
+    clip: rect(20px, 9999px, 60px, 0);
+  }
+  100% {
+    clip: rect(5px, 9999px, 40px, 0);
+  }
+}
+
+.lava-lamp {
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, #ff6ec7, transparent 25%),
+              radial-gradient(circle at 80% 80%, #ffd700, transparent 25%),
+              radial-gradient(circle at 50% 50%, #00ffff, transparent 30%);
+  background-blend-mode: screen;
+  animation: flow 20s infinite linear;
+}
+
+@keyframes flow {
+  0% {
+    background-position: 0% 50%, 100% 50%, 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%, 0% 50%, 75% 25%;
+  }
+  100% {
+    background-position: 0% 50%, 100% 50%, 50% 50%;
+  }
+}
